@@ -1,0 +1,102 @@
+{
+  "name": "@aitools/studio",
+  "version": "0.0.1-alpha.0",
+  "description": "VS Code extension for AI Guard and Cluster integration",
+  "license": "MIT",
+  "author": "AITools Contributors",
+  "publisher": "aitools",
+  "homepage": "https://github.com/aitoolsmonorepo/aitools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aitoolsmonorepo/aitools.git",
+    "directory": "packages/@aitools/studio"
+  },
+  "bugs": {
+    "url": "https://github.com/aitoolsmonorepo/aitools/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0",
+    "node": ">=18.0.0"
+  },
+  "categories": [
+    "Linters",
+    "Debuggers",
+    "Other"
+  ],
+  "keywords": [
+    "ai-safety",
+    "prompt-injection",
+    "guard",
+    "cluster",
+    "rendering",
+    "agent"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onCommand:aitools.studio.guard",
+    "onCommand:aitools.studio.clusterPreview"
+  ],
+  "main": "dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aitools.studio.guard",
+        "title": "AITools: Run Guard Analysis"
+      },
+      {
+        "command": "aitools.studio.clusterPreview",
+        "title": "AITools: Preview with Cluster"
+      }
+    ],
+    "configuration": {
+      "title": "AITools Studio",
+      "properties": {
+        "aitools.guard.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Guard security analysis"
+        },
+        "aitools.guard.strict": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable strict mode (all warnings become errors)"
+        },
+        "aitools.cluster.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable local Cluster preview (requires Puppeteer)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc && webpack",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "dependencies": {
+    "@aitools/guard": "workspace:*",
+    "@aitools/cluster": "workspace:*",
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.0",
+    "vsce": "^2.15.0",
+    "webpack": "^5.85.0",
+    "webpack-cli": "^5.1.0"
+  }
+}

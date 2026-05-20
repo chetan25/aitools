@@ -1,0 +1,73 @@
+{
+  "name": "@aitools/cluster",
+  "version": "0.1.0",
+  "description": "High-performance concurrent rendering engine with headless browser pool",
+  "license": "MIT",
+  "author": "AITools Contributors",
+  "homepage": "https://github.com/aitoolsmonorepo/aitools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aitoolsmonorepo/aitools.git",
+    "directory": "packages/@aitools/cluster"
+  },
+  "bugs": {
+    "url": "https://github.com/aitoolsmonorepo/aitools/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "aitools-cluster": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "concurrent-rendering",
+    "browser-automation",
+    "puppeteer",
+    "agent-orchestration",
+    "performance",
+    "high-scale",
+    "async",
+    "nodejs"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublish": "npm run build && npm run test && npm run type-check"
+  },
+  "dependencies": {
+    "puppeteer": "^20.0.0",
+    "pino": "^8.14.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.40.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.0"
+  },
+  "peerDependencies": {
+    "puppeteer": "^18.0.0 || ^19.0.0 || ^20.0.0"
+  }
+}
