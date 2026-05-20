@@ -1,0 +1,25 @@
+{
+  "name": "guard-demo-app",
+  "version": "1.0.0",
+  "description": "Comprehensive demo app for testing Guard ESLint rule with all edge cases",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/ tests/ || true",
+    "lint:json": "eslint src/ tests/ --format json --output-file eslint-report.json 2>/dev/null || true",
+    "test": "jest",
+    "demo": "npm run build && npm run lint:json && npm run test"
+  },
+  "keywords": ["guard", "eslint", "ai", "prompt-injection"],
+  "author": "AI Tools Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0"
+  }
+}
